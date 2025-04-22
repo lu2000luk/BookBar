@@ -1,5 +1,7 @@
 # BookBar
 
+(DOSEN'T WORK ON WEBSITES THAT BLOCK CUSTOM SCRIPTS SUCH AS GITHUB)
+
 File info:
 `compile.ts` - Outputs the bookmark minified and compiled
 
