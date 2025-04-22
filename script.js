@@ -26,10 +26,14 @@ const appCode = atob("___APP___"); // This now contains compiled JS
 const appScript = document.createElement("script");
 appScript.type = "module"; // Standard module script
 appScript.id = "_BookBarScript";
-appScript.textContent = appCode;
-document.body.appendChild(appScript); // Append to body
+appScript.textContent = appCode; // Append to body
 
 const styleSheet = atob("___CSS___"); // This now contains compiled CSS
+const style = document.createElement("style");
+style.textContent = styleSheet;
+document.head.appendChild(style); // Append to head
+
+document.body.appendChild(appScript);
 
 // Mark as loaded
 sessionStorage["bookmarklet_loaded"] = true;
