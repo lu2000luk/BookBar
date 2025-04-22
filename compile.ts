@@ -131,7 +131,7 @@ async function processFile() {
 
             const outputFileName = "output.min.js";
             const outputFilePath = path.resolve(outputFileName);
-            await Bun.write(outputFilePath, "javascript:(() => {" + finalMinifyResult.code + "})()");
+            await Bun.write(outputFilePath, "javascript:(()=>{" + finalMinifyResult.code + "})()");
         } else {
             console.warn("⚠️ Minification completed but resulted in empty code.");
         }
