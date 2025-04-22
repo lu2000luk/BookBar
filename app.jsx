@@ -164,6 +164,22 @@ function App() {
           <path d="M3.714 3.048a.498.498 0 0 0-.683.627l2.843 7.627a2 2 0 0 1 0 1.396l-2.842 7.627a.498.498 0 0 0 .682.627l18-8.5a.5.5 0 0 0 0-.904z" />
           <path d="M6 12h16" />
         </svg>
+        <svg
+          onClick={window.close_bookbar}
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          className="__BookBar__p-0.5 __BookBar__cursor-pointer __BookBar__hover:bg-black/30 __BookBar__rounded-md"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M18 6 6 18" />
+          <path d="m6 6 12 12" />
+        </svg>
       </div>
 
       <div className="__BookBar_messagebox __BookBar__font-sans">

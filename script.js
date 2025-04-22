@@ -9,6 +9,10 @@ if (sessionStorage["bookmarklet_loaded"]) {
   if (oldAppDiv) {
     oldAppDiv.remove();
   }
+  const oldStyle = document.querySelector("style#_BookBarStyle");
+  if (oldStyle) {
+    oldStyle.remove();
+  }
 }
 
 const appDiv = document.createElement("div");
@@ -34,18 +38,32 @@ document.body.appendChild(appScript);
 
 sessionStorage["bookmarklet_loaded"] = true;
 
+
+
+function close_bookbar() {
+  const appDiv = document.getElementById("_BookBar");
+  if (appDiv) {
+    appDiv.remove();
+  }
+  const oldScript = document.getElementById("_BookBarScript");
+  if (oldScript) {
+    oldScript.remove();
+  }
+  const oldStyle = document.querySelector("style#_BookBarStyle");
+  if (oldStyle) {
+    oldStyle.remove();
+  }
+  sessionStorage["bookmarklet_loaded"] = false;
+  document.removeEventListener("keydown", escapeFunction);
+};
+
 const escapeFunction = function (event) {
   if (event.key === "Escape") {
-    const appDiv = document.getElementById("_BookBar");
-    if (appDiv) {
-      appDiv.remove();
-    }
-    const oldScript = document.getElementById("_BookBarScript");
-    if (oldScript) {
-      oldScript.remove();
-    }
-    document.removeEventListener("keydown", escapeFunction);
+    event.preventDefault();
+    close_bookbar();
   }
 };
+
+window.close_bookbar = close_bookbar;
 
 document.addEventListener("keydown", escapeFunction);
