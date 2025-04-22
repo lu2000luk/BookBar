@@ -128,6 +128,10 @@ async function processFile() {
         if (finalMinifyResult.code) {
             console.log("\n✅ Done! Bookmark compiled and minified successfully.\n");
             console.log("javascript:(() => {" + finalMinifyResult.code + "})()");
+
+            const outputFileName = "output.min.js";
+            const outputFilePath = path.resolve(outputFileName);
+            await Bun.write(outputFilePath, "javascript:(() => {" + finalMinifyResult.code + "})()");
         } else {
             console.warn("⚠️ Minification completed but resulted in empty code.");
         }
