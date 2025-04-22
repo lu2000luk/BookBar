@@ -1,6 +1,6 @@
 # BookBar
 
-(DOSEN'T WORK ON WEBSITES THAT BLOCK CUSTOM SCRIPTS SUCH AS GITHUB)
+DOSEN'T WORK ON WEBSITES THAT BLOCK CUSTOM SCRIPTS SUCH AS GITHUB (If you really want to use it you will need this [extension](https://github.com/guest271314/remove-csp-header))
 
 File info:
 `compile.ts` - Outputs the bookmark minified and compiled
