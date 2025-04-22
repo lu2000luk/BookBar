@@ -161,7 +161,8 @@
 }
 
 .__Bookbar_message_user {
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.8);
+  color: #000000;
 }
 
 .__BookBar_messagebox {
