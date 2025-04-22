@@ -1,3 +1,5 @@
+console.log("[BookBar] Loader running...");
+
 // Clean up any previous instances
 if (sessionStorage["bookmarklet_loaded"]) {
   const oldScript = document.getElementById("_BookBarScript");
@@ -13,7 +15,8 @@ if (sessionStorage["bookmarklet_loaded"]) {
 // Create app container
 const appDiv = document.createElement("div");
 appDiv.id = "_BookBar";
-appDiv.style.position = "absolute";
+appDiv.style.position = "fixed";
+appDiv.style.zIndex = "9999";
 appDiv.style.top = "10px";
 appDiv.style.right = "10px";
 document.body.appendChild(appDiv);
@@ -25,6 +28,8 @@ appScript.type = "module"; // Standard module script
 appScript.id = "_BookBarScript";
 appScript.textContent = appCode;
 document.body.appendChild(appScript); // Append to body
+
+const styleSheet = atob("___CSS___"); // This now contains compiled CSS
 
 // Mark as loaded
 sessionStorage["bookmarklet_loaded"] = true;

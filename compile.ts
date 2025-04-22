@@ -9,6 +9,8 @@ const appFileName = "app.jsx";
 const appFilePath = path.resolve(appFileName);
 const scriptFileName = "script.js";
 const scriptFilePath = path.resolve(scriptFileName);
+const cssFileName = "app.css";
+const cssFilePath = path.resolve(cssFileName);
 
 async function processFile() {
     console.log(`Starting compilation process...`);
@@ -52,7 +54,7 @@ async function processFile() {
         if (!minifiedAppResult.code) throw new Error("App minification resulted in empty code.");
         console.log("✅ App JS minified.");
 
-        // 3. Read script.js and Inject Minified App Code
+        // 3. Read script.js and Inject Minified App Code and Inject CSS
         console.log(`Reading script file: ${scriptFilePath}`);
         const scriptFile = Bun.file(scriptFilePath);
         if (!(await scriptFile.exists())) throw new Error(`Script file not found: ${scriptFilePath}`);
@@ -62,6 +64,16 @@ async function processFile() {
         const base64AppCode = btoa(minifiedAppResult.code);
         scriptContent = scriptContent.replace("___APP___", base64AppCode);
         console.log("✅ App code injected into script.");
+
+        const cssFile = Bun.file(cssFilePath);
+        if (await cssFile.exists()) {
+            const cssContent = await cssFile.text();
+            const base64CssCode = btoa(cssContent);
+            scriptContent = scriptContent.replace("___CSS___", base64CssCode);
+            console.log("✅ CSS code injected into script.");
+        } else {
+            console.warn(`⚠️ CSS file not found: ${cssFilePath}. Skipping CSS injection.`);
+        }
 
         // 4. Minify Script JS (with injected app code)
         console.log("⏳ Minifying Script JS...");

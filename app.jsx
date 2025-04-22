@@ -7,3 +7,4 @@ function App() {
 }
 
 createRoot(document.getElementById("_BookBar")).render(<App />);
+console.log("[BookBar] Loaded!");
