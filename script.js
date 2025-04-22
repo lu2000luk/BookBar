@@ -33,3 +33,19 @@ document.head.appendChild(style);
 document.body.appendChild(appScript);
 
 sessionStorage["bookmarklet_loaded"] = true;
+
+const escapeFunction = function (event) {
+  if (event.key === "Escape") {
+    const appDiv = document.getElementById("_BookBar");
+    if (appDiv) {
+      appDiv.remove();
+    }
+    const oldScript = document.getElementById("_BookBarScript");
+    if (oldScript) {
+      oldScript.remove();
+    }
+    document.removeEventListener("keydown", escapeFunction);
+  }
+};
+
+document.addEventListener("keydown", escapeFunction);
