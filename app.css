@@ -1,3 +1,208 @@
-.__Bookbar::before {
-    content: "CSS Loaded";
+.__Bookbar_glowing-box {
+  --border-width__Bookbar: 2px;
+  --glow-spread__Bookbar: 5px;
+  --glow-color__Bookbar: #ff00cc;
+
+  animation: __Bookbar_bgColorCycle 10s linear infinite;
+  position: relative;
+  z-index: 1;
+}
+
+.__Bookbar_glowing-box_only_background {
+  background: inherit;
+  animation: __Bookbar_bgColorCycle 10s linear infinite;
+}
+
+.__Bookbar_glowing-box::before {
+  content: "";
+  position: absolute;
+  top: calc(-0 * var(--glow-spread__Bookbar));
+  left: calc(-0 * var(--glow-spread__Bookbar));
+  right: calc(-0 * var(--glow-spread__Bookbar));
+  bottom: calc(-0 * var(--glow-spread__Bookbar));
+  z-index: -1;
+  border-radius: inherit;
+  box-shadow: 0 0 calc(var(--glow-spread__Bookbar) * 1.5)
+      var(--glow-color__Bookbar),
+    0 0 calc(var(--glow-spread__Bookbar) * 3) var(--glow-color__Bookbar);
+  animation: __Bookbar_glowPulse 2s linear infinite alternate,
+    __Bookbar_colorCycle 5s linear infinite;
+}
+
+@keyframes __Bookbar_glowPulse {
+  0% {
+    box-shadow: 0 0 calc(var(--glow-spread__Bookbar) * 1.5)
+        var(--glow-color__Bookbar),
+      0 0 calc(var(--glow-spread__Bookbar) * 3) var(--glow-color__Bookbar);
+  }
+  100% {
+    box-shadow: 0 0 calc(var(--glow-spread__Bookbar) * 2)
+        var(--glow-color__Bookbar),
+      0 0 calc(var(--glow-spread__Bookbar) * 4) var(--glow-color__Bookbar);
+  }
+}
+
+@keyframes __Bookbar_colorCycle {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+@keyframes __Bookbar_bgColorCycle {
+  0% {
+    background-color: oklch(76.9% 0.188 70.08 / 0.6);
+  }
+  25% {
+    background-color: oklch(62.7% 0.194 149.214 / 0.6);
+  }
+  50% {
+    background-color: oklch(70.5% 0.213 47.604 / 0.6);
+  }
+  75% {
+    background-color: oklch(42.4% 0.199 265.638 / 0.6);
+  }
+  100% {
+    background-color: oklch(76.9% 0.188 70.08 / 0.6);
+  }
+}
+
+.__BookBar__backdrop-blur-sm {
+  backdrop-filter: blur(4px);
+}
+
+.__BookBar__rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.__BookBar__flex {
+  display: flex;
+}
+
+.__BookBar__m-5 {
+  margin: 1.25rem;
+  margin-bottom: 8px;
+}
+
+.__BookBar__p-1 {
+  padding: 0.25rem;
+}
+
+.__BookBar__items-center {
+  align-items: center;
+}
+
+.__BookBar__gap-1 {
+  gap: 0.25rem;
+}
+
+.__BookBar__text-white {
+  color: #ffffff;
+}
+
+.__BookBar__bg-transparent {
+  background-color: transparent;
+}
+
+.__BookBar__font-sans {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.__BookBar__pl-1 {
+  padding-left: 0.25rem;
+}
+
+.__BookBar__focus\:ring-none {
+  box-shadow: none;
+}
+
+.__BookBar__focus\:outline-none {
+  outline: none;
+}
+
+.__BookBar__focus\:border-none {
+  border-color: transparent;
+}
+
+.__BookBar__text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.__BookBar__w-xs {
+  width: 18rem;
+}
+
+.__BookBar__p-0\.5 {
+  padding: 0.125rem;
+}
+
+.__BookBar__cursor-pointer {
+  cursor: pointer;
+}
+
+.__BookBar__hover\:bg-black\/30:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.__BookBar__rounded-md {
+  border-radius: 0.375rem;
+}
+
+.__BookBar__placeholder::placeholder {
+  color: #d1d5db;
+}
+
+._BookBar__hidden {
+  display: none;
+}
+
+.__Bookbar_message_user {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.__BookBar_messagebox {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.__BookBar__mx-5 {
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
+}
+
+._BookBar__Message {
+  width: 18rem;
+  max-width: 18rem;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  white-space: pre-line;
+  max-width: 24rem;
+  width: 24rem;
+  padding: 8px;
+  font-size: 0.875rem;
+}
+
+._BookBar__Bar {
+  justify-content: between;
+  width: 18rem;
+}
+
+#_BookBar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.__BookBar_loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  transform: scale(1.5);
+  margin-top: 0.5rem;
 }
