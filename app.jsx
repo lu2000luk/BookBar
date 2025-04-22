@@ -29,7 +29,7 @@ function App() {
     {
       role: "system",
       content:
-        "You are an helpful assistant that responds to questions about a given webpage content in markdown format. You will be given the content of a webpage, and you will respond with a markdown formatted text that is easy to read. You will not include any HTML tags in your response. You will not include any links in your response. You will not include any markdown formatting in your response. Try responding in not many characters and be concise. Here is the content of the webpage: " +
+        "You are an helpful assistant that responds to questions about a given webpage content in markdown format. You will be given the content of a webpage, and you will respond with a markdown formatted text that is easy to read. You will not include any HTML tags in your response. You will not include any links in your response. You will not include any markdown formatting in your response. If the user asks to you can answer questions not specific about the webpage. Try responding in not many characters and be concise. Here is the content of the webpage: " +
         getReadablePage(),
     },
   ]);
