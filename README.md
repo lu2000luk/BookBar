@@ -1,4 +1,4 @@
-# Hacklet
+# BookBar
 
 File info:
 `compile.ts` - Outputs the bookmark minified and compiled
